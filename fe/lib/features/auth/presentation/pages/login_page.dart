@@ -1,4 +1,5 @@
 import 'package:fe/core/theme/app_palette.dart';
+import 'package:fe/core/widgets/app.dart';
 import 'package:fe/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
@@ -110,7 +111,9 @@ class _LoginPageState extends State<LoginPage> {
                                         _obscureText = !_obscureText;
                                       });
                                     },
-                                    icon: _obscureText ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                                    icon: _obscureText
+                                        ? const Icon(Icons.visibility_off)
+                                        : const Icon(Icons.visibility),
                                   ),
                                   labelText: 'Password',
                                   labelStyle: TextStyle(
@@ -157,7 +160,13 @@ class _LoginPageState extends State<LoginPage> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    App.route(),
+                                    (_) => false,
+                                  );
+                                },
                                 child: const Text(
                                   "Login",
                                   style: TextStyle(
